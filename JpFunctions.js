@@ -1,5 +1,5 @@
 export function generateDateOptions() {
-  const generateBirthdayYear = function() {
+  const generateBirthdayYear = function () {
     const thisYear = new Date().getFullYear();
     let i = thisYear - 100;
     const options = [];
@@ -11,7 +11,7 @@ export function generateDateOptions() {
     }
     return options;
   };
-  
+
   const birthdayMonth = [];
   for (let i = 1; i <= 12; i++) {
     birthdayMonth.push({
@@ -19,7 +19,7 @@ export function generateDateOptions() {
       value: i
     });
   }
-  
+
   const birthdayDay = [];
   for (let i = 1; i <= 31; i++) {
     birthdayDay.push({
@@ -34,4 +34,8 @@ export function generateDateOptions() {
   result.days = birthdayDay;
 
   return result;
+}
+
+export function numberFormat(number, unit = 'JPY') {
+  return new Intl.NumberFormat('ja-JP', { style: 'currency', currency: unit }).format(number);
 }
